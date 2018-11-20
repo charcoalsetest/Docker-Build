@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login -u charcoalse --password-stdin
+script:
+  - docker build -t charcoalse/metasmoke .
+  - docker push charcoalse/metasmoke 
